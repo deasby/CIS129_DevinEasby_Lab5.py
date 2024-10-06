@@ -1,0 +1,36 @@
+# Author Devin Easby
+# Lab 5 bottle return calculator
+# This code keeps track of the total number of bottles collected for seven days and provides total
+
+# Code to get the number of bottles returned
+def get_bottles():
+    nbr_of_days = 7
+    total_bottles = 0
+    today_bottles = 0
+    counter = 1 
+# Using while loop to collect data for 7 days 
+    while counter <= nbr_of_days: 
+        print (f'Enter number of bottles returned for the day #{counter}:')
+        today_bottles = int(input())
+        total_bottles = total_bottles + today_bottles
+        counter = counter + 1 
+    return total_bottles 
+
+# Code to calculate payout 
+def calc_payout(total_bottles):
+    payout_per_bottle = 0.10
+    total_payout = total_bottles * payout_per_bottle
+    return total_payout 
+
+# Code to print information 
+def print_info(total_bottles, total_payout): 
+    print(f'Total bottles collected: {total_bottles}')
+    print(f'Total payout: ${total_payout}')
+if __name__ == '__main__':
+    keep_going = 'y'
+    while keep_going.lower() == "y":
+        total_bottles = get_bottles()
+        total_payout = calc_payout(total_bottles)
+        print_info(total_bottles, total_payout)
+        print('Do you want to enter another weeks worth of data?) (Enter y or n)')
+        keep_going = input()
